@@ -1,0 +1,7 @@
+{% extends 'user/base.html' %}
+{% block content %}
+    Créer un compte en tant que :
+<a href="{% url 'user:recruteurSignUp' %}">Recruteur</a>
+    ou
+<a href="{% url 'user:candidatSignUp' %}">Candidat</a>
+{% endblock %}

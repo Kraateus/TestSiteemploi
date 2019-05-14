@@ -1,0 +1,18 @@
+{% extends 'user/base.html' %}
+
+{% block title %}
+home
+{% endblock %}
+
+{% block content %}
+c'est l'index, bienvenue {{ user }}
+
+    {% if user.is_candidat is True %}
+        <p>Vous etes un candidat</p>
+    {% elif user.is_recruteur is True %}
+        <p>Vous etes un recruteur</p>
+    {% else %}
+        <p>Vous etes ni candidat ni recruteur</p>
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends 'user/base.html' %}
+
+{% block title %}
+    Inscription Candidat
+{% endblock %}
+
+{% block content %}
+
+    <a href="{% url 'user:SignUp' %}">Retour</a>
+
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+
+    <div class="fieldWrapper">
+        {{ form.username.errors }}
+        <label for="{{ form.username.id_for_label }}">Username :</label>
+        {{ form.username }}
+    </div>
+
+    <div class="fieldWrapper">
+        {{ form.email.errors }}
+        <label for="{{ form.email.id_for_label }}">email :</label>
+        {{ form.email }}
+    </div>
+
+    <div class="fieldWrapper">
+        {{ form.password1.errors }}
+        <label for="{{ form.password1.id_for_label }}">Mot de passe :</label>
+        {{ form.password1 }}
+        {% if form.password1.help_text %}
+        <p class="help">{{ form.password1.help_text|safe }}</p>
+        {% endif %}
+    </div>
+
+    <div class="fieldWrapper">
+        {{ form.password2.errors }}
+        <label for="{{ form.password2.id_for_label }}">Vérification mot de passe :</label>
+        {{ form.password2 }}
+        {% if form.password2.help_text %}
+        <p class="help">{{ form.password2.help_text|safe }}</p>
+        {% endif %}
+    </div>
+
+    <div class="fieldWrapper">
+        {{ form.nom_metier.errors }}
+        <label for="{{ form.nom_metier.id_for_label }}">Nom métier :</label>
+        {{ form.nom_metier }}
+    </div>
+
+    <div class="fieldWrapper">
+        {{ form.zone_recherche.errors }}
+        <label for="{{ form.zone_recherche.id_for_label }}">Zone de recherche :</label>
+        {{ form.zone_recherche }}
+    </div>
+
+    <div class="fieldWrapper">
+        {{ form.accepted_cgu.errors }}
+        <label for="{{ form.accepted_cgu.id_for_label }}">cocher pour accepter CGU :</label>
+        {{ form.accepted_cgu }}
+    </div>
+
+
+    <input type="submit" value="Submit">
+</form>
+{% endblock %}

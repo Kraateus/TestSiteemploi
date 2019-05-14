@@ -1,0 +1,82 @@
+{% extends 'user/base.html' %}
+
+{% block title %}Inscription Recruteur {% endblock %}
+
+{% block content %}
+
+    <a href="{% url 'user:SignUp' %}">Retour</a>
+
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+
+    <div class="fieldWrapper">
+        {{ form.username.errors }}
+        <label for="{{ form.username.id_for_label }}">Username :</label>
+        {{ form.username }}
+    </div>
+
+    <div class="fieldWrapper">
+        {{ form.email.errors }}
+        <label for="{{ form.email.id_for_label }}">email :</label>
+        {{ form.email }}
+    </div>
+
+    <div class="fieldWrapper">
+        {{ form.password1.errors }}
+        <label for="{{ form.password1.id_for_label }}">Mot de passe :</label>
+        {{ form.password1 }}
+        {% if form.password1.help_text %}
+        <p class="help">{{ form.password1.help_text|safe }}</p>
+        {% endif %}
+    </div>
+
+    <div class="fieldWrapper">
+        {{ form.password2.errors }}
+        <label for="{{ form.password2.id_for_label }}">Vérification mot de passe :</label>
+        {{ form.password2 }}
+        {% if form.password2.help_text %}
+        <p class="help">{{ form.password2.help_text|safe }}</p>
+        {% endif %}
+    </div>
+
+    <div class="fieldWrapper">
+        {{ form.Entreprises.errors }}
+        <label for="{{ form.Entreprises.id_for_label }}">Créer votre entreprise si elle n'existe pas déja :</label>
+        {{ form.Entreprises }}
+    </div>
+
+    <div class="fieldWrapper">
+        {{ form.entreprise.errors }}
+        <label for="{{ form.entreprise.id_for_label }}">Entreprises si deja créer :</label>
+        {{ form.entreprise }}
+    </div>
+
+    <div class="fieldWrapper">
+        {{ form.poste_entreprise.errors }}
+        <label for="{{ form.poste_entreprise.id_for_label }}">Poste dans l'entreprise :</label>
+        {{ form.poste_entreprise }}
+    </div>
+
+    <div class="fieldWrapper">
+        {{ form.numero.errors }}
+        <label for="{{ form.numero.id_for_label }}">Numero de telephone :</label>
+        {{ form.numero }}
+    </div>
+
+    <div class="fieldWrapper">
+        {{ form.pays.errors }}
+        <label for="{{ form.pays.id_for_label }}">Pays de l'entreprise :</label>
+        {{ form.pays }}
+    </div>
+
+    <div class="fieldWrapper">
+        {{ form.accepted_cgu.errors }}
+        <label for="{{ form.accepted_cgu.id_for_label }}">cocher pour accepter CGU :</label>
+        {{ form.accepted_cgu }}
+    </div>
+
+
+    <input type="submit" value="Submit">
+</form>
+{% endblock %}
